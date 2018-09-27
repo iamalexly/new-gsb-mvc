@@ -5,5 +5,9 @@
 * MariaDB  
 * Apache2  
 * Architecture MVC
-* Bootstrap 4.0
-
+* Bootstrap 4.0  
+##### Pour comprendre le fonctionnement de cette application et faire des modifications vous devez :  
+* Bien connaitre le PHP
+* Bien connaitre le fonctionnement du Pattern MVC
+* Bien connaitre le fonctionnement des BDD
+* Avoir des notions sur les NameSpaces
