@@ -16,7 +16,7 @@ ob_start();
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
             <div class="card">
                 <div class="card-body">
-                    <form action="#" method="post">
+                    <form action="index.php?to=loginChecker" method="post">
                         <div class="form-group">
                             <label for="login">Login :</label>
                             <input type="text" class="form-control" id="login" name="login" placeholder="Votre nom d'utilisateur">
@@ -27,7 +27,7 @@ ob_start();
                             <small id="warningMessage" class="form-text text-muted">Ne partagez jamais vos identifiants.</small>
                         </div>
                         <button type="submit" class="btn btn-outline-primary btn-md btn-block">Connexion</button>
-                    </form>
+                    </form><br />
                 </div>
             </div>
         </div>
