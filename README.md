@@ -11,3 +11,4 @@
 * Bien connaitre le fonctionnement du Pattern MVC
 * Bien connaitre le fonctionnement des BDD
 * Avoir des notions sur les NameSpaces
+* Connaitre quelques notions de bases de la POO
