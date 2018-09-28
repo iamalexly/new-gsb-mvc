@@ -11,6 +11,9 @@ require_once ('controllers/loginController.php');
 /** Démarrage des SESSIONS */
 session_start();
 
+/** Initialisation de l'array stockant les erreurs */
+$_SESSION['errors'] = [];
+
 /** Block Try pour afficher les Exceptions (erreurs) de l'application */
 try
 {
@@ -23,8 +26,6 @@ try
 
             case 'loginChecker':
 
-                loginForm();
-
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
                     header('Location: index.php?to=home');
@@ -36,9 +37,11 @@ try
                         loginChecker($_POST['login'], $_POST['mdp']);
                     } else
                     {
-                        throw new Exception("Veuillez remplir tous les champs !");
+                        $_SESSION['errors'] = array(0 => "Veuillez remplir tous les champs");
                     }
                 }
+
+                loginForm();
 
                 break;
 

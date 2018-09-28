@@ -41,7 +41,7 @@ function loginChecker($login, $mdp)
         header('Location: index.php');
     } else
     {
-        throw new Exception("Pseudo ou mot de passe incorrect.");
+        $_SESSION['errors'] = array(0 => "Login ou mot de passe incorrect");
     }
 
 }
