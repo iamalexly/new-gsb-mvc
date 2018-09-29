@@ -18,14 +18,45 @@ ob_start();
 
 <div class="container" style="margin-bottom: 50px;">
     <div class="row">
-        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="margin-bottom: 25px;">
             <div class="list-group" id="list-tab" role="tablist">
                 <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="home">Profil</a>
                 <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="profile">Paramètres</a>
             </div>
-        </div><br />
+        </div>
 
         <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <?php
+            /** Si une erreur existe, on l'affiche */
+            if (!empty($_SESSION['errors']))
+            {
+
+                ?>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= $_SESSION['errors'][0]; ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <?php
+
+            } elseif (!empty($_SESSION['success'])) /** Si un succés existe, on l'affiche */
+            {
+
+                ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= $_SESSION['success'][0]; ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php
+
+            }
+
+            ?>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
                     <div class="card">

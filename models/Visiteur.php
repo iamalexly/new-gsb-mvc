@@ -47,4 +47,29 @@ class Visiteur extends DatabaseConf
         return $select;
     }
 
+    /**
+     * Cette méthode permet de mettre à jour certaines informations concernant un visiteur.
+     * @param $login
+     * @param $mdp
+     * @param $adresse
+     * @param $ville
+     * @param $cp
+     * @return mixed
+     */
+    public function updateVisiteur($login, $mdp, $adresse, $ville, $cp)
+    {
+        $db = $this->dbConnect();
+
+        $update = $db->prepare('UPDATE visiteurs SET adresse = :adresse, cp = :cp, ville = :ville WHERE login = :login AND mdp = :mdp');
+        $update->execute(array(
+            'adresse' => $adresse,
+            'cp' => $cp,
+            'ville' => $ville,
+            'login' => $login,
+            'mdp' => $mdp
+        ));
+
+        return $update;
+    }
+
 }

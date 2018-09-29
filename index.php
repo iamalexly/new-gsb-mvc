@@ -14,6 +14,9 @@ session_start();
 /** Initialisation de l'array stockant les erreurs */
 $_SESSION['errors'] = [];
 
+/** Initialisation de l'array stockant les succés */
+$_SESSION['success'] = [];
+
 /** Block Try pour afficher les Exceptions (erreurs) de l'application */
 try
 {
@@ -52,6 +55,28 @@ try
                 if (isset($_SESSION['status']))
                 {
                     home();
+                } else
+                {
+                    header('Location: index.php');
+                }
+                break;
+
+            case 'homeSettings':
+                /** On vérifie si l'utilisateur est connecté ou pas */
+                if (isset($_SESSION['status']))
+                {
+
+                    if (isset($_POST['ville']) && !empty($_POST['ville']) && isset($_POST['cp']) && !empty($_POST['cp']) && isset($_POST['adresse']) && !empty($_POST['adresse']))
+                    {
+                        homeSettings($_SESSION['login'], $_SESSION['mdp'], $_POST['adresse'], $_POST['ville'], $_POST['cp']);
+                        $_SESSION['success'] = array(0 => "Paramètres du compte changé avec succés !");
+                    } else
+                    {
+                        $_SESSION['errors'] = array(0 => "Veuillez remplir tous les champs");
+                    }
+
+                    home();
+
                 } else
                 {
                     header('Location: index.php');

@@ -23,9 +23,19 @@ function home()
 
 }
 
-function homeSettings()
+/**
+ * Cette fonction appel la méthode permettant de mettre à jour les informations d'un visiteur
+ * @param $login
+ * @param $mdp
+ * @param $adresse
+ * @param $ville
+ * @param $cp
+ * @return void
+ */
+function homeSettings($login, $mdp, $adresse, $ville, $cp)
 {
 
-    
+    $visiteur = new Visiteur();
+    $updateVisiteur = $visiteur->updateVisiteur($login, $mdp, $adresse, $ville, $cp);
 
 }
