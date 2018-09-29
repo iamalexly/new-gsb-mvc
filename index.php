@@ -8,6 +8,7 @@
 
 require_once ('controllers/loginController.php');
 require_once ('controllers/homeController.php');
+require_once ('controllers/myExpenseSheetsController.php');
 
 session_start();
 
@@ -16,6 +17,17 @@ $_SESSION['errors'] = [];
 
 /** Initialisation de l'array stockant les succés */
 $_SESSION['success'] = [];
+
+/**
+ * Cette fonction permet de convertir au format FR
+ * @param Date $date Date avant conversion
+ * @return false|string
+ */
+function dateConvert($date)
+{
+    $convert = date('d/m/Y', strtotime($date));
+    return $convert;
+}
 
 /** Block Try pour afficher les Exceptions (erreurs) de l'application */
 try {
@@ -87,6 +99,20 @@ try {
                 }
                 break;
 
+
+
+            case 'myExpenseSheets':
+                /** On vérifie si l'utilisateur est connecté ou pas */
+                if (isset($_SESSION['status'])) {
+
+                    myExpenseSheets();
+
+                } else {
+
+                    header('Location: index.php');
+
+                }
+                break;
 
 
             case 'logout':

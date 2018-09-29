@@ -37,6 +37,7 @@ function loginChecker($login, $mdp)
         $_SESSION['status'] = "Logged";
         $_SESSION['login'] = htmlspecialchars($login);
         $_SESSION['mdp'] = htmlspecialchars($mdp);
+        $_SESSION['userID'] = $data['id'];
 
         header('Location: index.php');
     } else

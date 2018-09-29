@@ -24,6 +24,7 @@ ob_start();
 
 <div class="container" style="margin-bottom: 50px;">
     <div class="row">
+
         <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="margin-bottom: 25px;">
             <div class="list-group" id="list-tab" role="tablist">
                 <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="home">Profil</a>
@@ -66,7 +67,7 @@ ob_start();
                     <div class="card">
                         <div class="card-body">
                             <h3><u>Informations du compte</u></h3><br />
-                            <?php require ('views/userInfosView.php'); ?>
+                            <?php require ('views/homeUserInfosView.php'); ?>
                         </div>
                     </div>
                 </div>
@@ -74,12 +75,13 @@ ob_start();
                     <div class="card">
                         <div class="card-body">
                             <h3><u>Paramètres du compte</u></h3><br />
-                            <?php require ('views/userSettingsView.php'); ?>
+                            <?php require ('views/homeUserSettingsView.php'); ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 

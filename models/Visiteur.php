@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Routeur de l'application
+ * Modele de la table "visiteurs"
  *
  * @author Alexandre Lebailly <http://iamalex.fr>
  */

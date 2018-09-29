@@ -39,14 +39,3 @@ function homeSettings($login, $mdp, $adresse, $ville, $cp)
     $updateVisiteur = $visiteur->updateVisiteur($login, $mdp, $adresse, $ville, $cp);
 
 }
-
-/**
- * Cette fonction permet de convertir au format FR
- * @param Date $date Date avant conversion
- * @return false|string
- */
-function dateConvert($date)
-{
-    $convert = date('d/m/Y', strtotime($date));
-    return $convert;
-}
