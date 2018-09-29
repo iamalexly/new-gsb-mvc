@@ -20,7 +20,7 @@ function loginForm()
 }
 
 /**
- * Fonction permettant de valider ou non la connexion d'un visiteur
+ * Fonction permettant de valider ou non la connexion d'un visiteur en fonction des informations qu'il a rentrés dans le formulaire de connexion
  * @param $login
  * @param $mdp
  * @return void

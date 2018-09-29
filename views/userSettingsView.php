@@ -1,3 +1,13 @@
+<?php
+
+/**
+ * Vue du formulaire permettant au visiteur de mettre à jour ses informations
+ * Formulaire contenu dans la Vue de l'accueil de l'application
+ *
+ * @author Alexandre Lebailly <http://iamalex.fr>
+ */
+
+?>
 <form class="needs-validation" action="index.php?to=homeSettings" method="post" novalidate>
     <div class="form-group">
         <label for="login">Login :</label>

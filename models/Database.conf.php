@@ -19,6 +19,7 @@ class DatabaseConf
     protected $password = "debianalex"; /** @var string $password Mot de passe de la base de données */
 
     /**
+     * Methode permettant de ce connecter à la base de données
      * @return PDO
      */
     protected function dbConnect()

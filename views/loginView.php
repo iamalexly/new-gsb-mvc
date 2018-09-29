@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Vue du formulaire de connexion de l'application
+ *
+ * @author Alexandre Lebailly <http://iamalex.fr>
+ */
+
 /** @var char $appTitle Titre de l'application */
 $appTitle = "Connexion";
 
@@ -56,8 +62,7 @@ ob_start();
 
                     <?php
                     /** Si une erreur existe, on l'affiche */
-                    if (!empty($_SESSION['errors']))
-                    {
+                    if (!empty($_SESSION['errors'])) {
 
                         ?>
 

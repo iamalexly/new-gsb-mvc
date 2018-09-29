@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Vue de l'accueil de l'application
+ *
+ * @author Alexandre Lebailly <http://iamalex.fr>
+ */
+
 /** @var char $appTitle Titre de l'application */
 $appTitle = "Accueil";
 
@@ -28,8 +34,7 @@ ob_start();
         <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
             <?php
             /** Si une erreur existe, on l'affiche */
-            if (!empty($_SESSION['errors']))
-            {
+            if (!empty($_SESSION['errors'])) {
 
                 ?>
 
@@ -42,8 +47,7 @@ ob_start();
 
                 <?php
 
-            } elseif (!empty($_SESSION['success'])) /** Si un succés existe, on l'affiche */
-            {
+            } elseif (!empty($_SESSION['success'])) { /** Si un succés existe, on l'affiche */
 
                 ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">

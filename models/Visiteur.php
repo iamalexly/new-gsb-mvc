@@ -10,7 +10,7 @@ require_once ('models/Database.conf.php');
 
 /**
  * Class Visiteur
- * Cette classe ressence les différentes méthodes en rapport avec les visiteurs
+ * Cette classe recense les différentes méthodes en rapport avec les visiteurs
  */
 class Visiteur extends DatabaseConf
 {
@@ -30,8 +30,8 @@ class Visiteur extends DatabaseConf
 
     /**
      * Cette méthode permet de récupérer toutes les informations d'un visiteur précis
-     * @param $login
-     * @param $mdp
+     * @param string $login Login du visiteur
+     * @param string $mdp Mot de passe du visiteur
      * @return mixed
      */
     public function getVisiteur($login, $mdp)
@@ -49,11 +49,11 @@ class Visiteur extends DatabaseConf
 
     /**
      * Cette méthode permet de mettre à jour certaines informations concernant un visiteur.
-     * @param $login
-     * @param $mdp
-     * @param $adresse
-     * @param $ville
-     * @param $cp
+     * @param string $login Login du visiteur
+     * @param string $mdp Mot de passe du visiteur
+     * @param string $adresse Adresse à mettre à jour
+     * @param string $ville Ville à mettre à jour
+     * @param string $cp Code postal à mettre à jour
      * @return mixed
      */
     public function updateVisiteur($login, $mdp, $adresse, $ville, $cp)

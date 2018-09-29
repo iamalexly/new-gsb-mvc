@@ -1,3 +1,12 @@
+<?php
+
+/**
+ * Template de base de l'application
+ *
+ * @author Alexandre Lebailly <http://iamalex.fr>
+ */
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -50,7 +59,6 @@ if (isset($_SESSION['status'])) {
 }
 
 ?>
-
 
 <?= $content; ?>
 

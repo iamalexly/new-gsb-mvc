@@ -18,79 +18,81 @@ $_SESSION['errors'] = [];
 $_SESSION['success'] = [];
 
 /** Block Try pour afficher les Exceptions (erreurs) de l'application */
-try
-{
+try {
 
-    if (isset($_GET['to']))
-    {
+    if (isset($_GET['to'])) {
 
-        switch ($_GET['to'])
-        {
+        switch ($_GET['to']) {
 
             case 'login':
-
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
+
                     header('Location: index.php?to=home');
-                } else
-                {
+
+                } else {
                     /** On regarde si les champs du formulaire de login sont bien remplis */
-                    if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['mdp']) && !empty($_POST['mdp']))
-                    {
+                    if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['mdp']) && !empty($_POST['mdp'])) {
+
                         loginChecker($_POST['login'], $_POST['mdp']);
-                    } else
-                    {
+
+                    } else {
+
                         $_SESSION['errors'] = array(0 => "Veuillez remplir tous les champs");
+
                     }
                 }
 
                 loginForm();
-
                 break;
 
 
 
             case 'home':
                 /** On vérifie si l'utilisateur est connecté ou pas */
-                if (isset($_SESSION['status']))
-                {
+                if (isset($_SESSION['status'])) {
+
                     home();
-                } else
-                {
+
+                } else {
+
                     header('Location: index.php');
+
                 }
                 break;
 
+
+
             case 'homeSettings':
                 /** On vérifie si l'utilisateur est connecté ou pas */
-                if (isset($_SESSION['status']))
-                {
+                if (isset($_SESSION['status'])) {
 
-                    if (isset($_POST['ville']) && !empty($_POST['ville']) && isset($_POST['cp']) && !empty($_POST['cp']) && isset($_POST['adresse']) && !empty($_POST['adresse']))
-                    {
+                    if (isset($_POST['ville']) && !empty($_POST['ville']) && isset($_POST['cp']) && !empty($_POST['cp']) && isset($_POST['adresse']) && !empty($_POST['adresse'])) {
+
                         homeSettings($_SESSION['login'], $_SESSION['mdp'], $_POST['adresse'], $_POST['ville'], $_POST['cp']);
                         $_SESSION['success'] = array(0 => "Paramètres du compte changé avec succés !");
-                    } else
-                    {
+
+                    } else {
+
                         $_SESSION['errors'] = array(0 => "Veuillez remplir tous les champs");
+
                     }
 
                     home();
 
-                } else
-                {
+                } else {
+
                     header('Location: index.php');
+
                 }
                 break;
 
 
 
             case 'logout':
-
                 /** On détruit les SESSIONS (cela déconnecte l'utilisateur) puis on redirige vers l'index */
                 session_destroy();
                 header('Location: index.php');
-
                 break;
 
 
@@ -100,37 +102,38 @@ try
              * Si l'utilisateur est connecté en revanche, on le redirige vers l'accueil de l'application
              */
             default:
-
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
-                    header('Location: index.php?to=home');
-                } else
-                {
-                    loginForm();
-                }
 
+                    header('Location: index.php?to=home');
+
+                } else {
+
+                    loginForm();
+
+                }
                 break;
 
         }
 
-    }
     /**
      * Affichage du formulaire de connexion (première page de l'application) s'il n'existe aucune @var $_GET
      * Si l'utilisateur est connecté en revanche, on le redirige vers l'accueil de l'application
      */
-    else
-    {
+    } else {
         /** On vérifie si l'utilisateur est connecté ou pas */
         if (isset($_SESSION['status'])) {
+
             header('Location: index.php?to=home');
-        } else
-        {
+
+        } else {
+
             loginForm();
+
         }
     }
 
-} catch (Exception $e)
-{
+} catch (Exception $e) {
 
     echo $e->getMessage();
 
