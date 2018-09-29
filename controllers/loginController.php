@@ -1,8 +1,7 @@
 <?php
 
-
 /**
- * Controlleur de l'application
+ * Controlleur Login de l'application
  * 
  * @author Alexandre Lebailly <http://iamalex.fr>
  */
@@ -11,7 +10,6 @@ require_once ('models/Visiteur.php');
 
 /**
  * Appel la vue LoginView (formulaire de connexion)
- *
  * @return void
  */
 function loginForm()
@@ -23,7 +21,9 @@ function loginForm()
 
 /**
  * Fonction permettant de valider ou non la connexion d'un visiteur
- *
+ * @param $login
+ * @param $mdp
+ * @return void
  */
 function loginChecker($login, $mdp)
 {

@@ -17,7 +17,7 @@ ob_start();
             <div class="card">
                 <div class="card-body">
 
-                    <form class="needs-validation" action="index.php?to=loginChecker" method="post" novalidate>
+                    <form class="needs-validation" action="index.php?to=login" method="post" novalidate>
                         <div class="form-group">
                             <label for="login">Login :</label>
                             <input type="text" class="form-control" id="login" name="login" placeholder="Votre nom d'utilisateur" required>

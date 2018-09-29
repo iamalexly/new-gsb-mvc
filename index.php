@@ -7,8 +7,8 @@
  */
 
 require_once ('controllers/loginController.php');
+require_once ('controllers/homeController.php');
 
-/** Démarrage des SESSIONS */
 session_start();
 
 /** Initialisation de l'array stockant les erreurs */
@@ -24,7 +24,7 @@ try
         switch ($_GET['to'])
         {
 
-            case 'loginChecker':
+            case 'login':
 
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
@@ -48,7 +48,14 @@ try
 
 
             case 'home':
-
+                /** On vérifie si l'utilisateur est connecté ou pas */
+                if (isset($_SESSION['status']))
+                {
+                    home();
+                } else
+                {
+                    header('Location: index.php');
+                }
                 break;
 
 
