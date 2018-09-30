@@ -18,16 +18,18 @@ class LignesFraisHorsForfait extends DatabaseConf
     /**
      * Cette méthode permet de récuperer toutes les lignes de frais hors forfait du visiteur connecté
      * @param int $userID ID du visiteur connecté (contenu dans $_SESSION['userID'])
+     * @param int $month Mois séléctionné par l'utilisateur (de 01 à 12). Si aucun mois n'est séléctionné, le @var $month est initialisé à 00
      * @return mixed
      */
-    public function getLignesFraisHorsForfait($userID)
+    public function getLignesFraisHorsForfait($userID, $month)
     {
 
         $db = $this->dbConnect();
 
-        $select = $db->prepare('SELECT * FROM lignesFraisHorsForfait WHERE idVisiteur = :userID');
+        $select = $db->prepare('SELECT * FROM lignesFraisHorsForfait WHERE idVisiteur = :userID AND MONTH(dateAjout) = :monthDateAjout');
         $select->execute(array(
-            'userID' => $userID
+            'userID' => $userID,
+            'monthDateAjout' => $month
         ));
 
         return $select;

@@ -105,7 +105,18 @@ try {
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
 
-                    myExpenseSheets();
+                    /**
+                     * On vérifie si un mois a été selectionné ou pas
+                     * Si aucun mois n'est sélectionné, on l'indique à l'aide de la @var array $_SESSION['errors']
+                     * Sinon, on indique le mois sélectionné grâce à la @var array $_SESSION['success']
+                     */
+                    if (isset($_POST['month']) && $_POST['month'] >= 01 && $_POST['month'] <= 12) {
+                        $_SESSION['success'] = array(0 => $_POST['month']);
+                        myExpenseSheets($_SESSION['userID'], $_POST['month']);
+                    } else {
+                        $_SESSION['errors'] = array(0 => "Aucun mois n'a été sélectionné");
+                        myExpenseSheets($_SESSION['userID'], 00);
+                    }
 
                 } else {
 
