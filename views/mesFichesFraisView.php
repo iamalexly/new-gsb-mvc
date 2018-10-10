@@ -30,7 +30,7 @@ ob_start();
                     <div class="card">
                         <div class="card-body">
                             <h3><u>Mes fiches de frais hors forfait</u></h3>
-                            <form method="post" action="index.php?to=myExpenseSheets">
+                            <form method="post" action="index.php?to=mesFichesFrais">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" for="month">Mois</label>

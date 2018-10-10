@@ -8,7 +8,7 @@
 
 require_once ('controllers/loginController.php');
 require_once ('controllers/homeController.php');
-require_once ('controllers/myExpenseSheetsController.php');
+require_once ('controllers/mesFichesFrais.php');
 
 session_start();
 
@@ -101,7 +101,7 @@ try {
 
 
 
-            case 'myExpenseSheets':
+            case 'mesFichesFrais':
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
 

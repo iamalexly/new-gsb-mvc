@@ -67,7 +67,7 @@ ob_start();
                     <div class="card">
                         <div class="card-body">
                             <h3><u>Informations du compte</u></h3><br />
-                            <?php require ('views/homeUserInfosView.php'); ?>
+                            <?php require ('views/homeInfosVisiteur.php'); ?>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@ ob_start();
                     <div class="card">
                         <div class="card-body">
                             <h3><u>Paramètres du compte</u></h3><br />
-                            <?php require ('views/homeUserSettingsView.php'); ?>
+                            <?php require ('views/homeParametresVisiteur.php'); ?>
                         </div>
                     </div>
                 </div>
