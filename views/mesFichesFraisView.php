@@ -130,19 +130,21 @@ ob_start();
                                         <th scope="col">Libellé</th>
                                         <th scope="col">Montant</th>
                                         <th scope="col">Date</th>
+                                        <th scope="col">Etat</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
 
-                                    /** @var mixed $ligneFHFDetails Contient les informations des Frais Hors Forfait du visiteur connecté */
+                                    /** @var mixed $ligneFHFDetails Contient les informations des Frais Hors Forfait et leurs états du visiteur connecté */
                                     foreach ($lignesFHorsFDetails as $ligneFHFDetails) {
 
                                         ?>
                                         <tr>
-                                            <td><?= htmlspecialchars($ligneFHFDetails['libelle']); ?></td>
+                                            <td><?= htmlspecialchars($ligneFHFDetails['Llibelle']); ?></td>
                                             <td><?= htmlspecialchars($ligneFHFDetails['montant']); ?>€</td>
                                             <td><?= htmlspecialchars(dateConvert($ligneFHFDetails['dateAjout'])); ?></td>
+                                            <td><?= htmlspecialchars($ligneFHFDetails['Elibelle']); ?></td>
                                         </tr>
                                         <?php
 
