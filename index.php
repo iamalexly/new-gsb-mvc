@@ -40,7 +40,7 @@ try {
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
 
-                    header('Location: index.php?to=home');
+                    header('Location: home');
 
                 } else {
                     /** On regarde si les champs du formulaire de login sont bien remplis */
@@ -68,14 +68,14 @@ try {
 
                 } else {
 
-                    header('Location: index.php');
+                    header('Location: index');
 
                 }
                 break;
 
 
 
-            case 'homeSettings':
+            case 'parametresVisiteur':
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
 
@@ -94,7 +94,7 @@ try {
 
                 } else {
 
-                    header('Location: index.php');
+                    header('Location: index');
 
                 }
                 break;
@@ -120,16 +120,16 @@ try {
 
                 } else {
 
-                    header('Location: index.php');
+                    header('Location: index');
 
                 }
                 break;
 
 
-            case 'logout':
+            case 'deconnexion':
                 /** On détruit les SESSIONS (cela déconnecte l'utilisateur) puis on redirige vers l'index */
                 session_destroy();
-                header('Location: index.php');
+                header('Location: index');
                 break;
 
 
@@ -142,7 +142,7 @@ try {
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
 
-                    header('Location: index.php?to=home');
+                    header('Location: home');
 
                 } else {
 
@@ -161,7 +161,7 @@ try {
         /** On vérifie si l'utilisateur est connecté ou pas */
         if (isset($_SESSION['status'])) {
 
-            header('Location: index.php?to=home');
+            header('Location: home');
 
         } else {
 

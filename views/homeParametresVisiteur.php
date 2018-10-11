@@ -8,7 +8,7 @@
  */
 
 ?>
-<form class="needs-validation" action="index.php?to=homeSettings" method="post" novalidate>
+<form class="needs-validation" action="parametres-visiteur" method="post" novalidate>
     <div class="form-group">
         <label for="login">Login :</label>
         <input type="text" class="form-control" id="login" value="<?= $visiteurDetails['login']; ?>" readonly>
