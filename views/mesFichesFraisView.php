@@ -25,12 +25,12 @@ ob_start();
         </div>
 
         <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="list-notInclude" role="tabpanel" aria-labelledby="list-notInclude-list">
+
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <h3><u>Mes fiches de frais hors forfait</u></h3>
-                            <form method="post" action="index.php?to=mesFichesFrais">
+                            <form method="post" action="mes-fiches-frais">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" for="month">Mois</label>
@@ -66,7 +66,7 @@ ob_start();
                                 </div>
 
                                 <?php
-                            /** Si un succés existe, on l'affiche */
+                                /** Si un succés existe, on l'affiche */
                             } elseif (!empty($_SESSION['success'])) {
 
                                 ?>
@@ -119,45 +119,18 @@ ob_start();
                                 <?php
                             }
 
-
-                            /** Si un mois a bien été séléctionné, on montre le tableau de frais hors forfait */
-                            if (isset($_POST['month'])) {
-
-                                ?>
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">Libellé</th>
-                                        <th scope="col">Montant</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Etat</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-
-                                    /** @var mixed $ligneFHFDetails Contient les informations des Frais Hors Forfait et leurs états du visiteur connecté */
-                                    foreach ($lignesFHorsFDetails as $ligneFHFDetails) {
-
-                                        ?>
-                                        <tr>
-                                            <td><?= htmlspecialchars($ligneFHFDetails['Llibelle']); ?></td>
-                                            <td><?= htmlspecialchars($ligneFHFDetails['montant']); ?>€</td>
-                                            <td><?= htmlspecialchars(dateConvert($ligneFHFDetails['dateAjout'])); ?></td>
-                                            <td><?= htmlspecialchars($ligneFHFDetails['Elibelle']); ?></td>
-                                        </tr>
-                                        <?php
-
-                                    }
-
-                                    ?>
-                                    </tbody>
-                                </table>
-                                <?php
-
-                            }
-
                             ?>
+                        </div>
+                    </div>
+                </div>
+            </div><br />
+
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-notInclude" role="tabpanel" aria-labelledby="list-notInclude-list">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3><u>Mes fiches de frais hors forfait</u></h3><br />
+                            <?php include 'mesFichesFraisHorsForfaitView.php'; ?>
                         </div>
                     </div>
                 </div>
@@ -165,6 +138,7 @@ ob_start();
                     <div class="card">
                         <div class="card-body">
                             <h3><u>Mes fiches de frais forfait</u></h3><br />
+                            <?php include 'mesFichesFraisForfaitView.php'; ?>
                         </div>
                     </div>
                 </div>

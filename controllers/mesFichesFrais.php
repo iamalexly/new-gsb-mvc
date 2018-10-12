@@ -7,6 +7,7 @@
  */
 
 require_once ('models/LignesFraisHorsForfait.php');
+require_once ('models/LignesFraisForfait.php');
 
 /**
  * Appel la vue mesFraisHorsForfait (Mes fiches de frais)
@@ -22,6 +23,11 @@ function myExpenseSheets($userID, $month)
     $getLignesFHorsF = $lignesFHorsF->getLignesFraisHorsForfait($userID, $month);
 
     $lignesFHorsFDetails = $getLignesFHorsF->fetchAll();
+
+    $lignesFF = new LignesFraisForfait();
+    $getLignesFF = $lignesFF->getLignesFraisForfait($userID, $month);
+
+    $lignesFFDetails = $getLignesFF->fetchAll();
 
     require ('views/mesFichesFraisView.php');
 
