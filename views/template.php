@@ -44,7 +44,7 @@ if (isset($_SESSION['status'])) {
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="mes-fiches-frais">Mes fiches de frais</a>
-                            <a class="dropdown-item" href="#">Saisie de fiches de frais</a>
+                            <a class="dropdown-item" href="saisir-fiches-frais">Saisie de fiches de frais</a>
                         </div>
                     </li>
                     <li class="nav-item">

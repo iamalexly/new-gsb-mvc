@@ -26,7 +26,7 @@ class LignesFraisForfait extends DatabaseConf
 
         $db = $this->dbConnect();
 
-        $select = $db->prepare('SELECT fF.libelle AS fFlibelle, lFF.dateAjout AS dateAjout, fF.montant AS montant, e.libelle AS elibelle, lFF.idEtat as idEtat 
+        $select = $db->prepare('SELECT fF.libelle AS fFlibelle, lFF.dateAjout AS dateAjout, (fF.montant * fF.nombre) AS montant, e.libelle AS elibelle, lFF.idEtat as idEtat, fF.nombre AS nombre
                                 FROM lignesFraisForfait AS lFF, fraisForfait AS fF, etats AS e
                                 WHERE lFF.idVisiteur = :userID AND MONTH(lFF.dateAjout) = :monthDateAjout AND lFF.idEtat = e.id AND lFF.idFraisForfait = fF.id');
         $select->execute(array(

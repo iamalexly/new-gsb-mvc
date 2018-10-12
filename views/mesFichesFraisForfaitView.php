@@ -13,56 +13,60 @@
 if (isset($_POST['month'])) {
 
     ?>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Libellé</th>
-            <th scope="col">Montant</th>
-            <th scope="col">Date</th>
-            <th scope="col">Etat</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-
-        /** @var mixed $ligneFHFDetails Contient les informations des Frais Hors Forfait et leurs états du visiteur connecté */
-        foreach ($lignesFFDetails as $ligneFFDetails) {
-
-            ?>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <td><?= htmlspecialchars($ligneFFDetails['fFlibelle']); ?></td>
-                <td><?= htmlspecialchars($ligneFFDetails['montant']); ?>€</td>
-                <td><?= htmlspecialchars(dateConvert($ligneFFDetails['dateAjout'])); ?></td>
-
-                <?php
-
-                /** On regarde quel est l'état de la ligne, et on modifie la couleur du boutton en fonction */
-                switch ($ligneFFDetails['idEtat']) {
-
-                    case '1':
-                        $buttonColorEtat = 'danger';
-                        break;
-
-                    case '2':
-                        $buttonColorEtat = 'dark';
-                        break;
-
-                    case '3':
-                        $buttonColorEtat = 'success';
-
-                }
-
-                ?>
-                <td><button type="button" class="btn btn-sm btn-outline-<?= $buttonColorEtat; ?>" disabled><?= htmlspecialchars($ligneFFDetails['elibelle']); ?></button></td>
-
+                <th scope="col">Libellé</th>
+                <th scope="col">Montant</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Date</th>
+                <th scope="col">Etat</th>
             </tr>
+            </thead>
+            <tbody>
             <?php
 
-        }
+            /** @var mixed $ligneFHFDetails Contient les informations des Frais Hors Forfait et leurs états du visiteur connecté */
+            foreach ($lignesFFDetails as $ligneFFDetails) {
 
-        ?>
-        </tbody>
-    </table>
+                ?>
+                <tr>
+                    <td><?= htmlspecialchars($ligneFFDetails['fFlibelle']); ?></td>
+                    <td><?= htmlspecialchars($ligneFFDetails['montant']); ?>€</td>
+                    <td><?= htmlspecialchars($ligneFFDetails['nombre']); ?></td>
+                    <td><?= htmlspecialchars(dateConvert($ligneFFDetails['dateAjout'])); ?></td>
+
+                    <?php
+
+                    /** On regarde quel est l'état de la ligne, et on modifie la couleur du boutton en fonction */
+                    switch ($ligneFFDetails['idEtat']) {
+
+                        case '1':
+                            $buttonColorEtat = 'danger';
+                            break;
+
+                        case '2':
+                            $buttonColorEtat = 'dark';
+                            break;
+
+                        case '3':
+                            $buttonColorEtat = 'success';
+
+                    }
+
+                    ?>
+                    <td><button type="button" class="btn btn-sm btn-outline-<?= $buttonColorEtat; ?>" disabled><?= htmlspecialchars($ligneFFDetails['elibelle']); ?></button></td>
+
+                </tr>
+                <?php
+
+            }
+
+            ?>
+            </tbody>
+        </table>
+    </div>
     <?php
 
 }

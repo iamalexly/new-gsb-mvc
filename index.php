@@ -9,6 +9,7 @@
 require_once ('controllers/loginController.php');
 require_once ('controllers/homeController.php');
 require_once ('controllers/mesFichesFrais.php');
+require_once ('controllers/saisirFichesFrais.php');
 
 session_start();
 
@@ -124,6 +125,22 @@ try {
 
                 }
                 break;
+
+
+
+            case 'saisirFichesFrais':
+                /** On vérifie si l'utilisateur est connecté ou pas */
+                if (isset($_SESSION['status'])) {
+
+                    saisirFichesFrais();
+
+                } else {
+
+                    header('Location: index');
+
+                }
+                break;
+
 
 
             case 'deconnexion':
