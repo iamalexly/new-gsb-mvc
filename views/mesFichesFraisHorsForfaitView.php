@@ -6,8 +6,6 @@
  * @author Alexandre Lebailly <http://iamalex.fr>
  */
 
-?>
-<?php
 
 /** Si un mois a bien été séléctionné, on montre le tableau de frais hors forfait */
 if (isset($_POST['month'])) {

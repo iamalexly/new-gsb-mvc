@@ -26,26 +26,7 @@ ob_start();
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-not-include">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3><u>Saisir un fiches de frais hors forfait</u></h3><br />
-                                <form class="needs-validation" novalidate>
-                                    <div class="form-group">
-                                        <label for="libelleFHF">Libelle :</label>
-                                        <input type="text" class="form-control" id="libelleFHF" placeholder="Bouteille" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for=dateFHF">Date :</label>
-                                        <input type="date" class="form-control" id="dateFHF" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="montantFHF">Montant :</label>
-                                        <input type="number" class="form-control" id="montantFHF" placeholder="25.00" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-outline-primary btn-md btn-block">Ajouter</button>
-                                </form>
-                            </div>
-                        </div>
+                        <?php include 'saisirFichesFraisHorsForfaitView.php'; ?>
                     </div>
 
                     <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-include">

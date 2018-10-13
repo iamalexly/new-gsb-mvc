@@ -134,6 +134,16 @@ try {
 
                     saisirFichesFrais();
 
+                    /**
+                     * On vérifie si tous les champs on bien été remplis
+                     * Si c'est le cas, alors on ajoute un Frais Hors Forfait à la bdd
+                     */
+                    if (isset($_POST['libelleFHF']) && !empty($_POST['libelleFHF']) && isset($_POST['dateFHF']) && !empty($_POST['dateFHF']) && isset($_POST['montantFHF']) && !empty($_POST['montantFHF'])) {
+
+                        addFraisHorsForfait($_SESSION['userID'], $_POST['libelleFHF'], $_POST['montantFHF'], $_POST['dateFHF']);
+
+                    }
+
                 } else {
 
                     header('Location: index');

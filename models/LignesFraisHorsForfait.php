@@ -38,4 +38,33 @@ class LignesFraisHorsForfait extends DatabaseConf
 
     }
 
+
+    /**
+     * Cette méthode permet d'ajout une ligne de frais hors forfait en fonction des informations soumise par le visiteur
+     * (A l'aide du formulaire de saisie de frais hors forfait
+     * @param int $userID ID du visiteur connecté (contenu dans $_SESSION['userID'])
+     * @param varchar $libelle Libelle du frais hors forfait ajouté
+     * @param decimal $montant Montant du frais hors forfait ajouté
+     * @param date $dateAjout Date d'ajout du frais hors forfait
+     * @return mixed
+     */
+    public function addLignesFraisHorsForfait($userID, $libelle, $montant, $dateAjout)
+    {
+
+        $db = $this->dbConnect();
+
+        $insert = $db->prepare('INSERT INTO lignesFraisHorsForfait (idVisiteur, libelle, montant, dateAjout, idEtat)
+                                VALUES (:idVisiteur, :libelle, :montant, :dateAjout, 2)');
+
+        $affectedLine = $insert->execute(array(
+            'idVisiteur' => $userID,
+            'libelle' => $libelle,
+            'montant' => $montant,
+            'dateAjout' => $dateAjout
+        ));
+
+        return $affectedLine;
+
+    }
+
 }
