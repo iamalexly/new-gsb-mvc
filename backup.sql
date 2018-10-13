@@ -78,4 +78,15 @@ create index idEtat
 
 create index idVisiteur
   on lignesFraisHorsForfait (idVisiteur);
+  
+INSERT INTO `fraisForfait` (`id`, `libelle`, `montant`) VALUES
+(1, 'Nuit Hôtel', '60.00'),
+(2, 'Déjeuner', '5.00'),
+(3, 'KM', '1.50');
+
+INSERT INTO `etats` (`id`, `libelle`) VALUES
+(1, 'Refuser'),
+(2, 'Attente'),
+(3, 'Accepter');
+
 
