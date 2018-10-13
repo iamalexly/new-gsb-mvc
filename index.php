@@ -37,7 +37,11 @@ try {
 
         switch ($_GET['to']) {
 
+
+
+            /** Page "index" ou "login" */
             case 'login':
+                
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
 
@@ -61,7 +65,9 @@ try {
 
 
 
+            /** Page "home" */
             case 'home':
+
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
 
@@ -77,6 +83,7 @@ try {
 
 
             case 'parametresVisiteur':
+
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
 
@@ -102,7 +109,9 @@ try {
 
 
 
+            /** Page "mes-fiches-frais" */
             case 'mesFichesFrais':
+
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
 
@@ -128,11 +137,11 @@ try {
 
 
 
+            /** Page "saisir-fiches-frais" */
             case 'saisirFichesFrais':
+
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
-
-                    saisirFichesFrais();
 
                     /**
                      * On vérifie si tous les champs on bien été remplis
@@ -140,9 +149,23 @@ try {
                      */
                     if (isset($_POST['libelleFHF']) && !empty($_POST['libelleFHF']) && isset($_POST['dateFHF']) && !empty($_POST['dateFHF']) && isset($_POST['montantFHF']) && !empty($_POST['montantFHF'])) {
 
+                        $_SESSION['success'] = array(0 => "Frais hors forfait ajouté !");
                         addFraisHorsForfait($_SESSION['userID'], $_POST['libelleFHF'], $_POST['montantFHF'], $_POST['dateFHF']);
 
                     }
+
+                    /**
+                     * On vérifie si tous les champs on bien été remplis
+                     * Si c'est le cas, alors on ajout un Frais Forfait à la bdd
+                     */
+                    if (isset($_POST['typeFF']) && !empty($_POST['typeFF']) && isset($_POST['numberFF']) && !empty($_POST['numberFF']) && isset($_POST['dateFF']) && !empty($_POST['dateFF'])) {
+
+                        $_SESSION['success'] = array(0 => "Frais forfait ajouté !");
+                        addFraisForfait($_SESSION['userID'], $_POST['typeFF'], $_POST['dateFF'], $_POST['numberFF']);
+
+                    }
+
+                    saisirFichesFrais();
 
                 } else {
 
@@ -166,6 +189,7 @@ try {
              * Si l'utilisateur est connecté en revanche, on le redirige vers l'accueil de l'application
              */
             default:
+
                 /** On vérifie si l'utilisateur est connecté ou pas */
                 if (isset($_SESSION['status'])) {
 

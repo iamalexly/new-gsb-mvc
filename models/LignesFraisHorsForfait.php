@@ -41,7 +41,7 @@ class LignesFraisHorsForfait extends DatabaseConf
 
     /**
      * Cette méthode permet d'ajout une ligne de frais hors forfait en fonction des informations soumise par le visiteur
-     * (A l'aide du formulaire de saisie de frais hors forfait
+     * (A l'aide du formulaire de saisie de frais hors forfait)
      * @param int $userID ID du visiteur connecté (contenu dans $_SESSION['userID'])
      * @param varchar $libelle Libelle du frais hors forfait ajouté
      * @param decimal $montant Montant du frais hors forfait ajouté

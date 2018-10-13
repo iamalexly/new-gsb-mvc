@@ -39,9 +39,10 @@ function loginChecker($login, $mdp)
         $_SESSION['mdp'] = htmlspecialchars($mdp);
         $_SESSION['userID'] = $data['id'];
 
-        header('Location: index.php');
+        header('Location: home');
     } else
     {
+        /** On initialise un message d'erreur */
         $_SESSION['errors'] = array(0 => "Login ou mot de passe incorrect");
     }
 

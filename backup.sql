@@ -10,8 +10,7 @@ create table fraisForfait
   id      int auto_increment
     primary key,
   libelle varchar(255)  not null,
-  montant decimal(6, 2) not null,
-  nombre  int           not null
+  montant decimal(6, 2) not null
 );
 
 create table visiteurs
@@ -36,6 +35,7 @@ create table lignesFraisForfait
   idFraisForfait int           not null,
   idEtat         int default 2 not null,
   dateAjout      date          not null,
+  nombre         int default 1 not null,
   constraint lignesFraisForfait_ibfk_1
   foreign key (idVisiteur)
     references visiteurs (id),
