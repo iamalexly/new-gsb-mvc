@@ -1,4 +1,5 @@
 # GSB MVC
+> [Wiki d'installation](https://github.com/iamalexly/new-gsb-mvc/wiki)
 ##### Technologies utilisées :  
 * Debian 9.5  
 * PHP 7.2  
